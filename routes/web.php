@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 //route for training module
 Route::get('/trainings', 'TrainingController@index')->name('training');
 Route::get('/trainings/create', 'TrainingController@create')->name('training:create');
+Route::post('/trainings/create', 'TrainingController@store')->name('training:store');

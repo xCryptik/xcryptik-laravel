@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Training;
+
 class TrainingController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        //
+        //nothing yet
     }
 
     /**
@@ -35,7 +37,16 @@ class TrainingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Method 1
+        $training = new Training();
+        $training->title = $request->get('title');
+        $training->description = $request->get('description');
+        $training->trainer = $request->get('trainer');
+        //$training->user_id = $request->Auth::id();
+        $training->save();
+
+        //redirect to index
+        return redirect('/trainings');
     }
 
     /**

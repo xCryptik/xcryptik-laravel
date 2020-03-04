@@ -10,8 +10,8 @@
                 <div class="card-body">
 
                     <!-- form start -->
-                    <form action="" method="POST">
-                        
+                    <form action="{{ action('TrainingController@store')}}" method="POST">
+                        @csrf
                         Title
                         <input name="title" type="text" class="form-control">
                         Description
