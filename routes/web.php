@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//routes/web.php
+//route for training module
+Route::get('/trainings', 'TrainingController@index')->name('training');
+Route::get('/trainings/create', 'TrainingController@create')->name('training:create');
