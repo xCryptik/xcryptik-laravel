@@ -21,6 +21,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //routes/web.php
 //route for training module
-Route::get('/trainings', 'TrainingController@index')->name('training:index');
-Route::get('/trainings/create', 'TrainingController@create')->name('training:create');
-Route::post('/trainings/create', 'TrainingController@store')->name('training:store');
+//Route::get('/trainings', 'TrainingController@index')->name('training:index');
+//Route::get('/trainings/create', 'TrainingController@create')->name('training:create');
+//Route::post('/trainings/create', 'TrainingController@store')->name('training:store');
+
+
+//group routing
+//
+Route::group([
+    'middleware' => 'auth',
+    'prefix' => 'trainings',
+    'as' =>'trainings',
+],function(){
+    Route::get('/', 'TrainingController@index')->name('training:index');
+    Route::get('/trainings/create', 'TrainingController@create')->name('training:create');
+    Route::post('/trainings/create', 'TrainingController@store')->name('training:store');
+});
