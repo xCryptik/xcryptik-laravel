@@ -13,10 +13,19 @@ class TrainingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //display all record
-        $trainings = Training::all();
+        if($request->get('keyword')!=null)
+        {
+            //search based on keyword
+            $keyword = $request->get('keyword');
+            $trainings = Training::where('title','LIKE','%'.$keyword.'%')->get();
+        }
+        else
+        {
+            //display all record
+            $trainings = Training::all();
+        }
         return view('trainings.index')->with(compact('trainings')); //create.blade.php
     }
 

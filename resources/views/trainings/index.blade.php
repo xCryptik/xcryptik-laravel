@@ -6,7 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Training Index</div>
-
+                    <div class="float-right">
+                        <form class="form-inline" method="GET" action="{{route('training:index')}}">
+                            <input type="text" name="keyword" class="form-control">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
                 <div class="card-body">
                     
                     <table class="table table-striped">
