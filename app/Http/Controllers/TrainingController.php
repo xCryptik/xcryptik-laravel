@@ -19,12 +19,12 @@ class TrainingController extends Controller
         {
             //search based on keyword
             $keyword = $request->get('keyword');
-            $trainings = Training::where('title','LIKE','%'.$keyword.'%')->get();
+            $trainings = Training::where('title','LIKE','%'.$keyword.'%')->paginate(5);
         }
         else
         {
             //display all record
-            $trainings = Training::all();
+            $trainings = Training::paginate(5);
         }
         return view('trainings.index')->with(compact('trainings')); //create.blade.php
     }
