@@ -15,7 +15,9 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        //nothing yet
+        //display all record
+        $trainings = Training::all();
+        return view('trainings.index')->with(compact('trainings')); //create.blade.php
     }
 
     /**
